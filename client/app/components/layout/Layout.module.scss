@@ -1,0 +1,23 @@
+.wrapper {
+  background-color: rgba(229, 229, 229, 0.51);
+  display: grid;
+  grid-template-columns: auto 18% minmax(320px, 1200px) auto;
+  grid-template-rows: 50px 1fr auto;
+  min-height: 100vh;
+  grid-template-areas: '. header header .'
+                        '. sidebar main .';
+  gap: 30px 20px;
+  font-size: 1.6rem;
+}
+
+.header {
+  grid-area: header;
+}
+.main {
+  grid-area: main;
+  height: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}

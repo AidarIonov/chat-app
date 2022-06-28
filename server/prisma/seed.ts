@@ -1,17 +1,29 @@
-import { PrismaClient } from '@prisma/client';
+import {PrismaClient} from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 async function main() {
-    const user = await prisma.user.create({
+    // await prisma.user.deleteMany({})
+    // await prisma.chat.deleteMany({})
+    // const user = await prisma.user.create({
+    //     data: {
+    //         email: 'aidar@gmail.com',
+    //         name: 'Aidar',
+    //         avatarPath: 'uploads/1.jpg'
+    //     }
+    // })
+    const chat = await prisma.chat.create({
         data: {
-            email: 'bakytbekovaidar@gmail.com',
-            name: 'Aidar',
-            avatarPath: 'uploads/1.jpg'
+            messages: {
+                create: [
+                    {body: 'helloo', fromUserId: 7, toUserId: 8},
+                    {body: 'damn, fuck u', fromUserId: 8, toUserId: 7},
+                ]
+            }
         }
     })
 
-    console.log(user)
+    console.log(chat)
 }
 
 

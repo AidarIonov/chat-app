@@ -19,7 +19,6 @@ const GoogleAuth: FC = (props) => {
             },
         }
     )
-
     useEffect(() => {
         if (code) mutate(String(code))
     }, [code, mutate])

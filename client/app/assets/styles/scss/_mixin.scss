@@ -1,0 +1,19 @@
+@import '_vars';
+
+@mixin flex($align: stretch, $justify: flex-start) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin mobile($width: 480px) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin tablet($width: 765px) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}

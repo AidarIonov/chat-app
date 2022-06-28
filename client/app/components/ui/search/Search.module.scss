@@ -1,0 +1,17 @@
+@use '../../../assets/styles/scss/mixin' as *;
+.field {
+  @include flex(center);
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  input {
+    font-size: 1.6rem;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+  }
+  svg {
+    font-size: 2.1rem;
+  }
+}

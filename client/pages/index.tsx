@@ -1,18 +1,23 @@
 import type {NextPage} from 'next'
-import {useRouter} from "next/router";
 import {useAuth} from "@/hooks/useAuth";
-import {useEffect} from "react";
-import {authService} from "@/services/auth/auth.service";
+import Auth from "./auth";
+import Home from "@/components/screens/home/Home";
+import {withLayout} from "@/components/layout/WithLayout";
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
     const {user} = useAuth()
     console.log(user)
-    return (
-        <div>
-            home
 
-        </div>
+    return (
+
+        user ?
+            <div>
+                <Home/>
+
+            </div>
+            : <Auth/>
+
     )
 }
 
-export default Home
+export default withLayout(HomePage)

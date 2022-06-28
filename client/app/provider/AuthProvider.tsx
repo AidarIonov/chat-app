@@ -13,14 +13,14 @@ import {
 import { TypeUser } from '@/services/auth/auth.helper'
 import { authService } from '@/services/auth/auth.service'
 
-interface IContext {
+export interface IUserContext {
     user: TypeUser
     setUser: Dispatch<SetStateAction<TypeUser>> | null
 }
 
-export const AuthContext = createContext<IContext>({} as IContext)
+export const AuthContext = createContext<IUserContext>({} as IUserContext)
 
-const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
+const AuthProvider: FC<PropsWithChildren<IUserContext>> = ({ children }) => {
     const [user, setUser] = useState<TypeUser>(null)
 
     const { pathname } = useRouter()

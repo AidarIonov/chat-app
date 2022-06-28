@@ -12,9 +12,32 @@ datasource db {
 }
 
 model User {
-    id      Int   @id @default(autoincrement())
-    email   String  @unique
-    name    String
-    avatarPath String
-    createdAt DateTime @default(now())
+    id           Int          @id @default(autoincrement())
+    email        String       @unique
+    name         String
+    avatarPath   String
+    createdAt    DateTime     @default(now())
+    sentMessages     Message[]    @relation("toUser")
+    revievedMessages     Message[]    @relation("fromUser")
 }
+
+model Chat {
+    id           Int          @id @default(autoincrement())
+    messages     Message[]
+    createdAt    DateTime     @default(now())
+}
+
+
+model Message {
+    id           Int          @id @default(autoincrement())
+    body         String
+    chat         Chat         @relation(fields: [chatId], references: [id])
+    chatId       Int
+    fromUser     User         @relation(name: "fromUser", fields: [fromUserId], references: [id])
+    fromUserId   Int
+    toUser       User         @relation(name: "toUser",fields: [toUserId], references: [id])
+    toUserId     Int
+    isRead       Boolean      @default(false)
+    createdAt    DateTime     @default(now())
+}
+

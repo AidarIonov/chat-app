@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
     // await prisma.user.deleteMany({})
-    // await prisma.chat.deleteMany({})
+    await prisma.chat.deleteMany({})
     // const user = await prisma.user.create({
     //     data: {
     //         email: 'aidar@gmail.com',

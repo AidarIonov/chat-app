@@ -2,15 +2,18 @@ import {FC} from 'react';
 
 import styles from './UserList.module.scss';
 import UserItem from "@/components/userList/UserItem";
+import {IUser} from "@/types/user.interface";
 
-const UserList: FC = (props) => {
+interface IUserList {
+    users: IUser[] | undefined
+}
+
+const UserList: FC<IUserList> = ({users}) => {
     return (
         <ul className={styles.list}>
-        <UserItem/>
-        <UserItem/>
-        <UserItem/>
-        <UserItem/>
-        <UserItem/>
+            {users?.map(item => (
+                <UserItem key={item.id} {...item}/>
+            ))}
         </ul>
     );
 }

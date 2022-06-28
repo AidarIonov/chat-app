@@ -6,7 +6,8 @@ import { ChatController } from './chat.controller';
 @Module({
     providers: [ChatService],
     imports: [PrismaModule],
-    controllers: [ChatController]
+    controllers: [ChatController],
+    exports: [ChatService]
 })
 export class ChatModule {
 }

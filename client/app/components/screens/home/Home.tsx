@@ -1,11 +1,10 @@
 import {FC} from 'react';
-import Search from "@/components/ui/search/Search";
-import Chat from "@/components/chat/Chat";
 
+import styles from './Home.module.scss'
 const Home: FC = (props) => {
     return (
-        <div>
-            <Chat/>
+        <div className={styles.wrapper}>
+
         </div>
     );
 }

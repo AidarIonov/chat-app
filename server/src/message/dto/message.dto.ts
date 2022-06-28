@@ -9,4 +9,7 @@ export class MessageDto {
 
     @IsNumber()
     toUserId: number
+
+    @IsNumber()
+    fromUserId: number
 }

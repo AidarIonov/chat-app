@@ -11,7 +11,7 @@ interface ISearchField {
     className?: string
 }
 
-const Search: FC<ISearchField> = ({keyword, handleSearch, className, ...rest}): JSX.Element => {
+const SearchField: FC<ISearchField> = ({keyword, handleSearch, className, ...rest}): JSX.Element => {
     return (
         <div className={cn(styles.field, className)} {...rest}>
             <MaterialIcon name='MdSearch'/>
@@ -24,4 +24,4 @@ const Search: FC<ISearchField> = ({keyword, handleSearch, className, ...rest}): 
     );
 }
 
-export default Search;
+export default SearchField;

@@ -21,7 +21,7 @@ export class UserController {
 
     @Get()
     @Auth()
-    async getAll(@Query('search') search: string) {
+    async getAll(@Query('search') search?: string) {
         const doc = await this.userService.getAllUsers(search)
         if (!doc.length) throw new NotFoundException('Users not found')
         return doc

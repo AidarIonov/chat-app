@@ -6,14 +6,12 @@ import {withLayout} from "@/components/layout/WithLayout";
 
 const HomePage: NextPage = () => {
     const {user} = useAuth()
-    console.log(user)
 
     return (
 
         user ?
             <div>
                 <Home/>
-
             </div>
             : <Auth/>
 
